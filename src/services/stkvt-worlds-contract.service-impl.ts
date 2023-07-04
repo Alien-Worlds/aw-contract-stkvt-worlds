@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 30 Jun 2023 10:14:22 GMT
+ * Last updated on: Tue, 04 Jul 2023 13:56:32 GMT
  */
 
 import { 
@@ -46,7 +46,7 @@ export class StkvtWorldsContractServiceImpl
   public async fetchConfig (
     options?: GetTableRowsOptions
   ): Promise<Result<ConfigRawModel[], Error>> {
-    return await this.getAll<ConfigRawModel>('candidate_name', {
+    return await this.getAll<ConfigRawModel>('time_multiplier', {
       ...options,
       code: 'stkvt.worlds',
       table: 'config',
@@ -63,7 +63,7 @@ export class StkvtWorldsContractServiceImpl
   public async fetchWeights (
     options?: GetTableRowsOptions
   ): Promise<Result<WeightsRawModel[], Error>> {
-    return await this.getAll<WeightsRawModel>('candidate_name', {
+    return await this.getAll<WeightsRawModel>('voter', {
       ...options,
       code: 'stkvt.worlds',
       table: 'weights',

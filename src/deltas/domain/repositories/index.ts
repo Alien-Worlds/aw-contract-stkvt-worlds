@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 30 Jun 2023 10:14:22 GMT
+ * Last updated on: Tue, 04 Jul 2023 13:56:32 GMT
  */
 
 export * from './stkvt-worlds-delta.repository';
