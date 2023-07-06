@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Tue, 04 Jul 2023 13:56:32 GMT
+ * Last updated on: Thu, 06 Jul 2023 12:20:55 GMT
  */
 
 import { 
@@ -46,14 +46,18 @@ export class StkvtWorldsContractServiceImpl
   public async fetchConfig (
     options?: GetTableRowsOptions
   ): Promise<Result<ConfigRawModel[], Error>> {
-    return await this.getAll<ConfigRawModel>('time_multiplier', {
+    const table_key = 'time_multiplier';
+    const tableRowOptions = {
       ...options,
       code: 'stkvt.worlds',
       table: 'config',
-      table_key: 'time_multiplier',
-    });
-  }
+      table_key,
+    };
 
+    return options?.limit > 0
+      ? await this.getMany<ConfigRawModel>(tableRowOptions)
+      : await this.getAll<ConfigRawModel>(table_key, tableRowOptions);
+  }
   /**
    * A EosSmartContractServiceImpl for the weights table.
    * 
@@ -63,12 +67,16 @@ export class StkvtWorldsContractServiceImpl
   public async fetchWeights (
     options?: GetTableRowsOptions
   ): Promise<Result<WeightsRawModel[], Error>> {
-    return await this.getAll<WeightsRawModel>('voter', {
+    const table_key = 'voter';
+    const tableRowOptions = {
       ...options,
       code: 'stkvt.worlds',
       table: 'weights',
-      table_key: 'voter',
-    });
-  }
+      table_key,
+    };
 
+    return options?.limit > 0
+      ? await this.getMany<WeightsRawModel>(tableRowOptions)
+      : await this.getAll<WeightsRawModel>(table_key, tableRowOptions);
+  }
 }
