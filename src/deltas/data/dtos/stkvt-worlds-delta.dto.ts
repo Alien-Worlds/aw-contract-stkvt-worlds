@@ -1,16 +1,20 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 06 Jul 2023 12:20:55 GMT
+ * Last updated on: Thu, 06 Jul 2023 15:57:31 GMT
  */
 
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 
-import { ConfigMongoModel } from './config.dto';
-import { WeightsMongoModel } from './weights.dto';
+import { ConfigMongoModel, ConfigRawModel } from './config.dto';
+import { WeightsMongoModel, WeightsRawModel } from './weights.dto';
 
 export type DataDocumentType =
   | ConfigMongoModel
   | WeightsMongoModel;
+
+export type DataRawType =
+  | ConfigRawModel
+  | WeightsRawModel;
 
 
 export type StkvtWorldsDeltaMongoModel = {
@@ -25,4 +29,16 @@ export type StkvtWorldsDeltaMongoModel = {
   primary_key?: MongoDB.Long,
   present?: boolean;
   block_timestamp?: Date;
+};
+
+export type StkvtWorldsDeltaRawModel = {
+  block_timestamp: Date;
+  block_number: string;
+  code: string;
+  scope: string;
+  table: string;
+  payer: string;
+  primary_key: string;
+  present: boolean;
+  data: DataRawType;
 };

@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 06 Jul 2023 12:20:55 GMT
+ * Last updated on: Thu, 06 Jul 2023 15:57:31 GMT
  */
 
 
@@ -11,11 +11,12 @@ import {
 import { ContractDelta, MapperImpl, parseToBigInt } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { DataEntityType } from '../../domain/entities/stkvt-worlds-delta';
-import { StkvtWorldsDeltaMongoModel } from '../dtos';
+import { StkvtWorldsDeltaMongoModel, StkvtWorldsDeltaRawModel } from '../dtos';
 import { StkvtWorldsTableName } from '../../domain/enums';
-import { ConfigMongoMapper } from "./config.mapper";
-import { WeightsMongoMapper } from "./weights.mapper";
+import { ConfigMongoMapper, ConfigRawMapper } from "./config.mapper";
+import { WeightsMongoMapper, WeightsRawMapper } from "./weights.mapper";
 
+// Mongo Mapper
 export class StkvtWorldsDeltaMongoMapper
   extends MapperImpl<ContractDelta<DataEntityType, StkvtWorldsDeltaMongoModel>, StkvtWorldsDeltaMongoModel>
 {
@@ -25,10 +26,14 @@ export class StkvtWorldsDeltaMongoMapper
     let entityData;
     switch (entity.table) {
       case StkvtWorldsTableName.Config:
-        entityData = new ConfigMongoMapper().fromEntity(entity.delta as Config);
+        entityData = new ConfigMongoMapper().fromEntity(
+          entity.data as Config
+        );
         break;
       case StkvtWorldsTableName.Weights:
-        entityData = new WeightsMongoMapper().fromEntity(entity.delta as Weights);
+        entityData = new WeightsMongoMapper().fromEntity(
+          entity.data as Weights
+        );
         break;
     }
 
@@ -39,7 +44,6 @@ export class StkvtWorldsDeltaMongoMapper
       code: entity.code,
       scope: entity.scope,
       table: entity.table,
-      data_hash: entity.deltaHash,
       data: entityData,
       payer: entity.payer,
       primary_key: new MongoDB.Long(entity.primaryKey),
@@ -66,7 +70,6 @@ export class StkvtWorldsDeltaMongoMapper
       code,
       scope,
       table,
-      data_hash,
       payer,
       primary_key,
       present,
@@ -79,7 +82,56 @@ export class StkvtWorldsDeltaMongoMapper
       code,
       scope,
       table,
-      data_hash,
+      data,
+      payer,
+      parseToBigInt(primary_key),
+      present,
+      block_timestamp
+    );
+  }
+}
+
+// Processor Task Mapper
+export class StkvtWorldsDeltaProcessorTaskMapper extends MapperImpl<
+  ContractDelta<DataEntityType, StkvtWorldsDeltaRawModel>, 
+    StkvtWorldsDeltaRawModel
+> {
+  public fromEntity(
+    entity: ContractDelta<DataEntityType, StkvtWorldsDeltaRawModel>
+  ): StkvtWorldsDeltaRawModel {
+    throw new Error('method not implemented');
+  }
+
+  public toEntity(
+    rawModel: StkvtWorldsDeltaRawModel
+  ): ContractDelta<DataEntityType, StkvtWorldsDeltaRawModel> {
+    let data;
+    switch (rawModel.table) {
+      case StkvtWorldsTableName.Config:
+        data = new ConfigRawMapper().toEntity(rawModel.data);
+        break;
+      case StkvtWorldsTableName.Weights:
+        data = new WeightsRawMapper().toEntity(rawModel.data);
+        break;
+    }
+
+    const {
+      block_number,
+      code,
+      scope,
+      table,
+      payer,
+      primary_key,
+      present,
+      block_timestamp,
+    } = rawModel;
+
+    return new ContractDelta<DataEntityType, StkvtWorldsDeltaRawModel>(
+      '',
+      parseToBigInt(block_number),
+      code,
+      scope,
+      table,
       data,
       payer,
       parseToBigInt(primary_key),

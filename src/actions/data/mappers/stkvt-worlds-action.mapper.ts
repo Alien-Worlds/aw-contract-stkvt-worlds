@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 06 Jul 2023 12:20:55 GMT
+ * Last updated on: Thu, 06 Jul 2023 15:57:31 GMT
  */
 
 
@@ -15,19 +15,24 @@ import {
   parseToBigInt 
 } from '@alien-worlds/api-core';
 
-import { BalanceobsvMongoMapper } from "./balanceobsv.mapper";
-import { StakeobsvMongoMapper } from "./stakeobsv.mapper";
-import { UpdateconfigMongoMapper } from "./updateconfig.mapper";
+import { BalanceobsvMongoMapper, BalanceobsvRawMapper } from "./balanceobsv.mapper";
+import { StakeobsvMongoMapper, StakeobsvRawMapper } from "./stakeobsv.mapper";
+import { UpdateconfigMongoMapper, UpdateconfigRawMapper } from "./updateconfig.mapper";
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { DataEntityType } from '../../domain/entities/stkvt-worlds-action';
 import { 
   StkvtWorldsActionMongoModel,
+  StkvtWorldsActionRawModel,
   BalanceobsvMongoModel,
+  BalanceobsvRawModel,
   StakeobsvMongoModel,
+  StakeobsvRawModel,
   UpdateconfigMongoModel,
+  UpdateconfigRawModel,
 } from '../dtos';
 import { StkvtWorldsActionName } from '../../domain/enums';
 
+// Mongo Mapper
 export class StkvtWorldsActionMongoMapper
   extends MapperImpl<ContractAction<DataEntityType, StkvtWorldsActionMongoModel>, StkvtWorldsActionMongoModel>
 {
@@ -37,13 +42,19 @@ export class StkvtWorldsActionMongoMapper
     let entityData;
     switch (entity.name) {
       case StkvtWorldsActionName.Balanceobsv:
-        entityData = new BalanceobsvMongoMapper().fromEntity(entity.data as Balanceobsv);
+        entityData = new BalanceobsvMongoMapper().fromEntity(
+          entity.data as Balanceobsv
+        );
         break;
       case StkvtWorldsActionName.Stakeobsv:
-        entityData = new StakeobsvMongoMapper().fromEntity(entity.data as Stakeobsv);
+        entityData = new StakeobsvMongoMapper().fromEntity(
+          entity.data as Stakeobsv
+        );
         break;
       case StkvtWorldsActionName.Updateconfig:
-        entityData = new UpdateconfigMongoMapper().fromEntity(entity.data as Updateconfig);
+        entityData = new UpdateconfigMongoMapper().fromEntity(
+          entity.data as Updateconfig
+        );
         break;
     }
 
@@ -54,7 +65,6 @@ export class StkvtWorldsActionMongoMapper
       global_sequence: new MongoDB.Long(entity.globalSequence),
       receiver_sequence: new MongoDB.Long(entity.receiverSequence),
       trx_id: entity.transactionId,
-      action_hash: entity.actionHash,
       action: {
         name: entity.name,
         account: entity.account,
@@ -69,13 +79,19 @@ export class StkvtWorldsActionMongoMapper
     let data;
     switch (mongoModel.action.name) {
       case StkvtWorldsActionName.Balanceobsv:
-        data = new BalanceobsvMongoMapper().toEntity(mongoModel.action.data as BalanceobsvMongoModel);
+        data = new BalanceobsvMongoMapper().toEntity(
+          mongoModel.action.data as BalanceobsvMongoModel
+        );
         break;
       case StkvtWorldsActionName.Stakeobsv:
-        data = new StakeobsvMongoMapper().toEntity(mongoModel.action.data as StakeobsvMongoModel);
+        data = new StakeobsvMongoMapper().toEntity(
+          mongoModel.action.data as StakeobsvMongoModel
+        );
         break;
       case StkvtWorldsActionName.Updateconfig:
-        data = new UpdateconfigMongoMapper().toEntity(mongoModel.action.data as UpdateconfigMongoModel);
+        data = new UpdateconfigMongoMapper().toEntity(
+          mongoModel.action.data as UpdateconfigMongoModel
+        );
         break;
     }
 
@@ -86,7 +102,6 @@ export class StkvtWorldsActionMongoMapper
       global_sequence,
       receiver_sequence,
       trx_id,
-      action_hash,
       action,
     } = mongoModel;
 
@@ -100,7 +115,63 @@ export class StkvtWorldsActionMongoMapper
       parseToBigInt(receiver_sequence),
       trx_id,
       data,
-      action_hash
+    );
+  }
+}
+
+// Processor Task Mapper
+export class StkvtWorldsActionProcessorTaskMapper extends MapperImpl<
+  ContractAction<DataEntityType, StkvtWorldsActionRawModel>,
+  StkvtWorldsActionRawModel
+> {
+  public fromEntity(
+    entity: ContractAction<DataEntityType, StkvtWorldsActionRawModel>
+  ): StkvtWorldsActionRawModel {
+    throw new Error('method not implemented');
+  }
+
+  public toEntity(
+    rawModel: StkvtWorldsActionRawModel
+  ): ContractAction<DataEntityType, StkvtWorldsActionRawModel> {
+    let data;
+    switch (rawModel.name) {
+      case StkvtWorldsActionName.Balanceobsv:
+        data = new BalanceobsvRawMapper().toEntity(
+          rawModel.data as BalanceobsvRawModel
+        );
+        break;
+      case StkvtWorldsActionName.Stakeobsv:
+        data = new StakeobsvRawMapper().toEntity(
+          rawModel.data as StakeobsvRawModel
+        );
+        break;
+      case StkvtWorldsActionName.Updateconfig:
+        data = new UpdateconfigRawMapper().toEntity(
+          rawModel.data as UpdateconfigRawModel
+        );
+        break;
+    }
+
+    const {
+      account,
+      name,
+      block_timestamp,
+      block_number,
+      global_sequence,
+      recv_sequence,
+      transaction_id,
+    } = rawModel;
+
+    return new ContractAction<DataEntityType, StkvtWorldsActionRawModel>(
+      '',
+      block_timestamp,
+      parseToBigInt(block_number),
+      account,
+      name,
+      parseToBigInt(global_sequence),
+      parseToBigInt(recv_sequence),
+      transaction_id,
+      data
     );
   }
 }
