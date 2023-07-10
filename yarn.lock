@@ -2,15 +2,6 @@
 # yarn lockfile v1
 
 
-"@alien-worlds/api-core@^0.0.155":
-  version "0.0.155"
-  resolved "https://npm.pkg.github.com/download/@alien-worlds/api-core/0.0.155/33c08092422d3b41d3a6b215c06931d7eabd85bd#33c08092422d3b41d3a6b215c06931d7eabd85bd"
-  integrity sha512-pF0L5KDXzcaaYGNheIrgLg+y+GzINOOHxvxA9jGLyt7MrBr/adV0P016B9EK+BN9W2JVo+BCwsjAleji64mDPQ==
-  dependencies:
-    inversify "^6.0.1"
-    node-fetch "2.6.6"
-    reflect-metadata "^0.1.13"
-
 "@alien-worlds/api-core@^0.0.158":
   version "0.0.158"
   resolved "https://npm.pkg.github.com/download/@alien-worlds/api-core/0.0.158/92cb2bb3a2168e07fa7a8e240895f5133105e0ee#92cb2bb3a2168e07fa7a8e240895f5133105e0ee"
@@ -28,22 +19,14 @@
     "@alien-worlds/api-core" "^0.0.158"
     eosjs "^22.1.0"
 
-"@alien-worlds/eosio-contract-types@^1.0.17":
-  version "1.0.17"
-  resolved "https://npm.pkg.github.com/download/@alien-worlds/eosio-contract-types/1.0.17/177961e6ed365870e2ba66df3ef7ae351073d21f#177961e6ed365870e2ba66df3ef7ae351073d21f"
-  integrity sha512-AZUvBg9vsQ6RUm3fVwabhD2tJ8FUmaqNJlIxXwwI+zFho3QSYouFHs2uzvQzg7eBjlHUp17ThHKtBykvyVxGEQ==
+"@alien-worlds/eosio-contract-types@^1.0.19":
+  version "1.0.19"
+  resolved "https://npm.pkg.github.com/download/@alien-worlds/eosio-contract-types/1.0.19/f4fd88c5c0d115f79f985eaef3f2185de6225cbe#f4fd88c5c0d115f79f985eaef3f2185de6225cbe"
+  integrity sha512-qWBwMZNKJMNTSvGsJLUCF6P7V/1prEAdaqzR7y0D1bHqNOT5dxBc1OusWef+SVeIdCuHeTKHzxY2nWTTEKUSaA==
   dependencies:
-    "@alien-worlds/api-core" "^0.0.155"
-    "@alien-worlds/storage-mongodb" "^0.0.24"
+    "@alien-worlds/api-core" "^0.0.158"
+    "@alien-worlds/storage-mongodb" "^0.0.27"
     typescript "^4.9.5"
-
-"@alien-worlds/storage-mongodb@^0.0.24":
-  version "0.0.24"
-  resolved "https://npm.pkg.github.com/download/@alien-worlds/storage-mongodb/0.0.24/a995fd2bbe9d36c7c12042b2af273e2242a96dd5#a995fd2bbe9d36c7c12042b2af273e2242a96dd5"
-  integrity sha512-i4M04mdQCHyuPLu4QAAEhPxz6c6lcFKSCszSLswojJdq6vzQsRkP1MGEqJP3hRl97IcWdEsGswvvkn02UDdYEw==
-  dependencies:
-    "@alien-worlds/api-core" "^0.0.155"
-    mongodb "4.9.1"
 
 "@alien-worlds/storage-mongodb@^0.0.27":
   version "0.0.27"
