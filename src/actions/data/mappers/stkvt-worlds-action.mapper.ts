@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 06 Jul 2023 15:57:31 GMT
+ * Last updated on: Mon, 10 Jul 2023 07:39:00 GMT
  */
 
 
@@ -34,10 +34,10 @@ import { StkvtWorldsActionName } from '../../domain/enums';
 
 // Mongo Mapper
 export class StkvtWorldsActionMongoMapper
-  extends MapperImpl<ContractAction<DataEntityType, StkvtWorldsActionMongoModel>, StkvtWorldsActionMongoModel>
+  extends MapperImpl<ContractAction<DataEntityType>, StkvtWorldsActionMongoModel>
 {
   public fromEntity(
-    entity: ContractAction<DataEntityType, StkvtWorldsActionMongoModel>
+    entity: ContractAction<DataEntityType>
   ): StkvtWorldsActionMongoModel {
     let entityData;
     switch (entity.name) {
@@ -75,7 +75,7 @@ export class StkvtWorldsActionMongoMapper
 
   public toEntity(
     mongoModel: StkvtWorldsActionMongoModel
-  ): ContractAction<DataEntityType, StkvtWorldsActionMongoModel> {
+  ): ContractAction<DataEntityType> {
     let data;
     switch (mongoModel.action.name) {
       case StkvtWorldsActionName.Balanceobsv:
@@ -105,7 +105,7 @@ export class StkvtWorldsActionMongoMapper
       action,
     } = mongoModel;
 
-    return new ContractAction<DataEntityType, StkvtWorldsActionMongoModel>(
+    return new ContractAction<DataEntityType>(
       _id.toString(),
       block_timestamp,
       parseToBigInt(block_number),
