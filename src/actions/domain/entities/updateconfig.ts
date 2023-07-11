@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 09:44:27 GMT
+ * Last updated on: Tue, 11 Jul 2023 12:06:27 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -84,12 +84,12 @@ export class ConfigItem implements Entity {
    *
    * @public
    * @constructor
-   * @param bigint timeMultiplier
+   * @param number timeMultiplier
    * @param string [id]
    * @returns `ConfigItem` - An instance of the `ConfigItem` class.
    */
   public constructor(
-    public timeMultiplier: bigint,
+    public timeMultiplier: number,
     public id?: string,
   ) {}
 
@@ -115,7 +115,7 @@ export class ConfigItem implements Entity {
    * @returns `ConfigItem` An instance of the `ConfigItem` class.
    */
   public static create(
-    timeMultiplier: bigint,
+    timeMultiplier: number,
     id?: string,
     rest?: UnknownObject
   ): ConfigItem {
@@ -130,7 +130,7 @@ export class ConfigItem implements Entity {
 
   public static getDefault(): ConfigItem {
     return new ConfigItem(
-      0n,
+      0,
     );
   }
 }

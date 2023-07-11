@@ -1,12 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 09:44:27 GMT
+ * Last updated on: Tue, 11 Jul 2023 12:06:27 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
+import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { Updateconfig,  ConfigItem  } from "../../domain/entities";
 import { UpdateconfigMongoModel, UpdateconfigRawModel,  ConfigItemMongoModel, ConfigItemRawModel  } from "../dtos/updateconfig.dto";
@@ -57,7 +54,8 @@ export class ConfigItemMongoMapper
 
     this.mappingFromEntity.set('timeMultiplier', { 
       key: 'time_multiplier', 
-      mapper: (value: bigint) => MongoDB.Long.fromBigInt(value),
+      mapper: (value: number) => 
+        value,
     });
 
   }
@@ -70,7 +68,7 @@ export class ConfigItemMongoMapper
     } = mongoModel;
 
     return ConfigItem.create(
-        time_multiplier.toBigInt() ?? 0n,
+        time_multiplier ?? 0,
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -118,7 +116,7 @@ export class ConfigItemRawMapper
     } = rawModel;
 
     return ConfigItem.create(
-      parseToBigInt(time_multiplier ?? 0n),
+        time_multiplier ?? 0,
       undefined,
       rest
     );

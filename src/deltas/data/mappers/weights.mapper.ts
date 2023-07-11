@@ -1,12 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 09:44:27 GMT
+ * Last updated on: Tue, 11 Jul 2023 12:06:28 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
+import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { Weights  } from "../../domain/entities";
 import { WeightsMongoModel, WeightsRawModel  } from "../dtos/weights.dto";
@@ -26,12 +23,14 @@ export class WeightsMongoMapper
 
     this.mappingFromEntity.set('weight', { 
       key: 'weight', 
-      mapper: (value: bigint) => MongoDB.Long.fromBigInt(value),
+      mapper: (value: number) => 
+        value,
     });
 
     this.mappingFromEntity.set('weightQuorum', { 
       key: 'weight_quorum', 
-      mapper: (value: bigint) => MongoDB.Long.fromBigInt(value),
+      mapper: (value: number) => 
+        value,
     });
 
   }
@@ -47,8 +46,8 @@ export class WeightsMongoMapper
 
     return Weights.create(
         voter ?? '',
-        weight.toBigInt() ?? 0n,
-        weight_quorum.toBigInt() ?? 0n,
+        weight ?? 0,
+        weight_quorum ?? 0,
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -74,8 +73,8 @@ export class WeightsRawMapper
 
     return Weights.create(
         voter ?? '',
-      parseToBigInt(weight ?? 0n),
-      parseToBigInt(weight_quorum ?? 0n),
+        weight ?? 0,
+        weight_quorum ?? 0,
       undefined,
       rest
     );

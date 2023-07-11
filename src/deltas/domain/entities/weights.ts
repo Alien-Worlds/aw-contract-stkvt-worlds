@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 09:44:27 GMT
+ * Last updated on: Tue, 11 Jul 2023 12:06:28 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -17,15 +17,15 @@ export class Weights implements Entity {
    * @public
    * @constructor
    * @param string voter
-   * @param bigint weight
-   * @param bigint weightQuorum
+   * @param number weight
+   * @param number weightQuorum
    * @param string [id]
    * @returns `Weights` - An instance of the `Weights` class.
    */
   public constructor(
     public voter: string,
-    public weight: bigint,
-    public weightQuorum: bigint,
+    public weight: number,
+    public weightQuorum: number,
     public id?: string,
   ) {}
 
@@ -54,8 +54,8 @@ export class Weights implements Entity {
    */
   public static create(
     voter: string,
-    weight: bigint,
-    weightQuorum: bigint,
+    weight: number,
+    weightQuorum: number,
     id?: string,
     rest?: UnknownObject
   ): Weights {
@@ -73,8 +73,8 @@ export class Weights implements Entity {
   public static getDefault(): Weights {
     return new Weights(
       '',
-      0n,
-      0n,
+      0,
+      0,
     );
   }
 }

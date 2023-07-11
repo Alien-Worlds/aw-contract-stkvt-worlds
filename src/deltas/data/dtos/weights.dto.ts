@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 09:44:27 GMT
+ * Last updated on: Tue, 11 Jul 2023 12:06:27 GMT
  */
 
 import { MongoDB } from '@alien-worlds/storage-mongodb';
@@ -15,8 +15,8 @@ import { MongoDB } from '@alien-worlds/storage-mongodb';
 export type WeightsMongoModel = {
   _id?: MongoDB.ObjectId;
   voter?: string;
-  weight?: MongoDB.Long;
-  weight_quorum?: MongoDB.Long;
+  weight?: number;
+  weight_quorum?: number;
   [key: string]: unknown;
 };
 
@@ -29,8 +29,8 @@ export type WeightsMongoModel = {
  */
 export type WeightsRawModel = {
   voter?: string;
-  weight?: bigint;
-  weight_quorum?: bigint;
+  weight?: number;
+  weight_quorum?: number;
   [key: string]: unknown;
 };
 

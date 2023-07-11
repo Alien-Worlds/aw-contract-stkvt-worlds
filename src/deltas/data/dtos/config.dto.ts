@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 09:44:27 GMT
+ * Last updated on: Tue, 11 Jul 2023 12:06:27 GMT
  */
 
 import { MongoDB } from '@alien-worlds/storage-mongodb';
@@ -14,7 +14,7 @@ import { MongoDB } from '@alien-worlds/storage-mongodb';
  */
 export type ConfigMongoModel = {
   _id?: MongoDB.ObjectId;
-  time_multiplier?: MongoDB.Long;
+  time_multiplier?: number;
   [key: string]: unknown;
 };
 
@@ -26,7 +26,7 @@ export type ConfigMongoModel = {
  * @typedef {Object} ConfigRawModel
  */
 export type ConfigRawModel = {
-  time_multiplier?: bigint;
+  time_multiplier?: number;
   [key: string]: unknown;
 };
 
