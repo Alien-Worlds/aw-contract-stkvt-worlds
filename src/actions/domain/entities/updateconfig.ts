@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Tue, 11 Jul 2023 12:06:27 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:58:02 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -47,6 +47,8 @@ export class Updateconfig implements Entity {
    *
    * @static
    * @public
+   * @param ConfigItem newConfig
+   * @param string dacId
    * @returns `Updateconfig` An instance of the `Updateconfig` class.
    */
   public static create(
@@ -112,6 +114,7 @@ export class ConfigItem implements Entity {
    *
    * @static
    * @public
+   * @param number timeMultiplier
    * @returns `ConfigItem` An instance of the `ConfigItem` class.
    */
   public static create(

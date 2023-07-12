@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Tue, 11 Jul 2023 12:06:28 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:58:02 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -50,6 +50,9 @@ export class Weights implements Entity {
    *
    * @static
    * @public
+   * @param string voter
+   * @param number weight
+   * @param number weightQuorum
    * @returns `Weights` An instance of the `Weights` class.
    */
   public static create(

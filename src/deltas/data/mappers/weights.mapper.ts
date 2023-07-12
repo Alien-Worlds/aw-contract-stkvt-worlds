@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Tue, 11 Jul 2023 12:06:28 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:58:02 GMT
  */
 
 import { MapperImpl } from '@alien-worlds/api-core';
@@ -17,20 +17,17 @@ export class WeightsMongoMapper
 
     this.mappingFromEntity.set('voter', { 
       key: 'voter', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('weight', { 
       key: 'weight', 
-      mapper: (value: number) => 
-        value,
+      mapper: (value: number) => value,
     });
 
     this.mappingFromEntity.set('weightQuorum', { 
       key: 'weight_quorum', 
-      mapper: (value: number) => 
-        value,
+      mapper: (value: number) => value,
     });
 
   }
@@ -45,9 +42,9 @@ export class WeightsMongoMapper
     } = mongoModel;
 
     return Weights.create(
-        voter ?? '',
-        weight ?? 0,
-        weight_quorum ?? 0,
+      voter || '',
+      weight || 0,
+      weight_quorum || 0,
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -72,9 +69,9 @@ export class WeightsRawMapper
     } = rawModel;
 
     return Weights.create(
-        voter ?? '',
-        weight ?? 0,
-        weight_quorum ?? 0,
+      voter || '',
+      weight || 0,
+      weight_quorum || 0,
       undefined,
       rest
     );

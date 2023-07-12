@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Tue, 11 Jul 2023 12:06:27 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:58:02 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -48,6 +48,8 @@ export class Balanceobsv implements Entity {
    *
    * @static
    * @public
+   * @param AccountBalanceDelta[] balanceDeltas
+   * @param string dacId
    * @returns `Balanceobsv` An instance of the `Balanceobsv` class.
    */
   public static create(
@@ -117,6 +119,8 @@ export class AccountBalanceDelta implements Entity {
    *
    * @static
    * @public
+   * @param string account
+   * @param Asset balanceDelta
    * @returns `AccountBalanceDelta` An instance of the `AccountBalanceDelta` class.
    */
   public static create(

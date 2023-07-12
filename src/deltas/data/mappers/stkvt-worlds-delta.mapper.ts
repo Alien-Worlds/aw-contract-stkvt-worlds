@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Tue, 11 Jul 2023 12:06:28 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:58:02 GMT
  */
 
 
@@ -18,10 +18,10 @@ import { WeightsMongoMapper, WeightsRawMapper } from "./weights.mapper";
 
 // Mongo Mapper
 export class StkvtWorldsDeltaMongoMapper
-  extends MapperImpl<ContractDelta<DataEntityType, StkvtWorldsDeltaMongoModel>, StkvtWorldsDeltaMongoModel>
+  extends MapperImpl<ContractDelta<DataEntityType>, StkvtWorldsDeltaMongoModel>
 {
   public fromEntity(
-    entity: ContractDelta<DataEntityType, StkvtWorldsDeltaMongoModel>
+    entity: ContractDelta<DataEntityType>
   ): StkvtWorldsDeltaMongoModel {
     let entityData;
     switch (entity.table) {
@@ -53,7 +53,7 @@ export class StkvtWorldsDeltaMongoMapper
 
   public toEntity(
     mongoModel: StkvtWorldsDeltaMongoModel
-  ): ContractDelta<DataEntityType, StkvtWorldsDeltaMongoModel> {
+  ): ContractDelta<DataEntityType> {
     let data;
     switch (mongoModel.table) {
       case StkvtWorldsTableName.Config:
@@ -76,7 +76,7 @@ export class StkvtWorldsDeltaMongoMapper
       block_timestamp,
     } = mongoModel;
 
-    return new ContractDelta<DataEntityType, StkvtWorldsDeltaMongoModel>(
+    return new ContractDelta<DataEntityType>(
       _id.toString(),
       parseToBigInt(block_number),
       code,

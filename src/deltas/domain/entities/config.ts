@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Tue, 11 Jul 2023 12:06:28 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:58:02 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -44,6 +44,7 @@ export class Config implements Entity {
    *
    * @static
    * @public
+   * @param number timeMultiplier
    * @returns `Config` An instance of the `Config` class.
    */
   public static create(

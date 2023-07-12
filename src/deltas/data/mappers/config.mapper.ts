@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Tue, 11 Jul 2023 12:06:28 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:58:02 GMT
  */
 
 import { MapperImpl } from '@alien-worlds/api-core';
@@ -17,8 +17,7 @@ export class ConfigMongoMapper
 
     this.mappingFromEntity.set('timeMultiplier', { 
       key: 'time_multiplier', 
-      mapper: (value: number) => 
-        value,
+      mapper: (value: number) => value,
     });
 
   }
@@ -31,7 +30,7 @@ export class ConfigMongoMapper
     } = mongoModel;
 
     return Config.create(
-        time_multiplier ?? 0,
+      time_multiplier || 0,
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -54,7 +53,7 @@ export class ConfigRawMapper
     } = rawModel;
 
     return Config.create(
-        time_multiplier ?? 0,
+      time_multiplier || 0,
       undefined,
       rest
     );
