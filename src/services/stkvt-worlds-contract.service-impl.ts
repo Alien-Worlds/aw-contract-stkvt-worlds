@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Wed, 12 Jul 2023 06:58:02 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:03:41 GMT
  */
 
 import { 
@@ -46,7 +46,7 @@ export class StkvtWorldsContractServiceImpl
   public async fetchConfig (
     options?: GetTableRowsOptions
   ): Promise<Result<ConfigRawModel[], Error>> {
-    const table_key = 'time_multiplier';
+    const table_key = '';
     const tableRowOptions = {
       ...options,
       code: 'stkvt.worlds',

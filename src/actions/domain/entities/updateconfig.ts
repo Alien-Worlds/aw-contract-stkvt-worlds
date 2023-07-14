@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Wed, 12 Jul 2023 06:58:02 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:03:41 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -60,7 +60,7 @@ export class Updateconfig implements Entity {
     const entity = new Updateconfig(
       newConfig,
       dacId,
-      id
+      id,
     );
     entity.rest = rest;
 
@@ -124,7 +124,7 @@ export class ConfigItem implements Entity {
   ): ConfigItem {
     const entity = new ConfigItem(
       timeMultiplier,
-      id
+      id,
     );
     entity.rest = rest;
 

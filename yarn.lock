@@ -36,6 +36,14 @@
     "@alien-worlds/api-core" "^0.0.158"
     mongodb "4.9.1"
 
+"@alien-worlds/storage-mongodb@^0.0.28":
+  version "0.0.28"
+  resolved "https://npm.pkg.github.com/download/@alien-worlds/storage-mongodb/0.0.28/e3000595309890caeda9c6feb1861b316123b37c#e3000595309890caeda9c6feb1861b316123b37c"
+  integrity sha512-uh266auXFb0ye/XnKEvmacm/DakrBcv0i4ZwvjmfGs/8isUt75jqKLP/hW9fW/+npRSdnkLJ1EI+qkQ2fXclPg==
+  dependencies:
+    "@alien-worlds/api-core" "^0.0.158"
+    mongodb "4.9.1"
+
 "@ampproject/remapping@^2.2.0":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.2.1.tgz#99e8e11851128b8702cd57c33684f1d0f260b630"

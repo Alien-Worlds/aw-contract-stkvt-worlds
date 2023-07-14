@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Wed, 12 Jul 2023 06:58:02 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:03:41 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -61,7 +61,7 @@ export class Balanceobsv implements Entity {
     const entity = new Balanceobsv(
       balanceDeltas,
       dacId,
-      id
+      id,
     );
     entity.rest = rest;
 
@@ -132,7 +132,7 @@ export class AccountBalanceDelta implements Entity {
     const entity = new AccountBalanceDelta(
       account,
       balanceDelta,
-      id
+      id,
     );
     entity.rest = rest;
 

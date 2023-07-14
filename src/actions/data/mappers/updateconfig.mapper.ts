@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Wed, 12 Jul 2023 06:58:02 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:03:41 GMT
  */
 
 import { MapperImpl } from '@alien-worlds/api-core';
@@ -31,12 +31,12 @@ export class UpdateconfigMongoMapper
     const { 
       new_config,
       dac_id,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 
     return Updateconfig.create(
-      new ConfigItemMongoMapper().toEntity(new_config),
+      new_config ? new ConfigItemMongoMapper().toEntity(new_config) : ConfigItem.getDefault(),
       dac_id || '',
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
@@ -60,7 +60,7 @@ export class ConfigItemMongoMapper
   public toEntity(mongoModel: ConfigItemMongoModel): ConfigItem {
     const { 
       time_multiplier,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 
@@ -89,7 +89,7 @@ export class UpdateconfigRawMapper
     } = rawModel;
 
     return Updateconfig.create(
-      new ConfigItemRawMapper().toEntity(new_config),
+      new_config ? new ConfigItemRawMapper().toEntity(new_config) : ConfigItem.getDefault(),
       dac_id || '',
       undefined,
       rest

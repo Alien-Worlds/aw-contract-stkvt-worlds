@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Wed, 12 Jul 2023 06:58:02 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:03:41 GMT
  */
 
 import { MapperImpl } from '@alien-worlds/api-core';
@@ -32,7 +32,7 @@ export class BalanceobsvMongoMapper
     const { 
       balance_deltas,
       dac_id,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 
@@ -67,13 +67,13 @@ export class AccountBalanceDeltaMongoMapper
     const { 
       account,
       balance_delta,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 
     return AccountBalanceDelta.create(
       account || '',
-      new AssetMongoMapper().toEntity(balance_delta),
+      balance_delta ? new AssetMongoMapper().toEntity(balance_delta) : Asset.getDefault(),
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -121,7 +121,7 @@ export class AccountBalanceDeltaRawMapper
 
     return AccountBalanceDelta.create(
       account || '',
-      new AssetRawMapper().toEntity(balance_delta),
+      balance_delta ? new AssetRawMapper().toEntity(balance_delta) : Asset.getDefault(),
       undefined,
       rest
     );
