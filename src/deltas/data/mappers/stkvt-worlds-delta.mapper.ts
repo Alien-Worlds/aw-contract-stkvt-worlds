@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 17:03:41 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:58:27 GMT
  */
 
 
@@ -9,7 +9,7 @@ import {
   Weights,
 } from '../../domain/entities';
 import { ContractDelta, MapperImpl, parseToBigInt } from '@alien-worlds/api-core';
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { DataEntityType } from '../../domain/entities/stkvt-worlds-delta';
 import { StkvtWorldsDeltaMongoModel, StkvtWorldsDeltaRawModel } from '../dtos';
 import { StkvtWorldsTableName } from '../../domain/enums';
@@ -18,7 +18,7 @@ import { WeightsMongoMapper, WeightsRawMapper } from "./weights.mapper";
 
 // Mongo Mapper
 export class StkvtWorldsDeltaMongoMapper
-  extends MapperImpl<ContractDelta<DataEntityType>, StkvtWorldsDeltaMongoModel>
+  extends MongoMapper<ContractDelta<DataEntityType>, StkvtWorldsDeltaMongoModel>
 {
   public fromEntity(
     entity: ContractDelta<DataEntityType>

@@ -1,16 +1,16 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 17:03:41 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:58:27 GMT
  */
 
 import { MapperImpl } from '@alien-worlds/api-core';
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { Updateconfig,  ConfigItem  } from "../../domain/entities";
 import { UpdateconfigMongoModel, UpdateconfigRawModel,  ConfigItemMongoModel, ConfigItemRawModel  } from "../dtos/updateconfig.dto";
 
 // Mongo Mappers
 export class UpdateconfigMongoMapper
-  extends MapperImpl<Updateconfig, UpdateconfigMongoModel>
+  extends MongoMapper<Updateconfig, UpdateconfigMongoModel>
 {
   constructor() {
     super();
@@ -45,7 +45,7 @@ export class UpdateconfigMongoMapper
 }
 
 export class ConfigItemMongoMapper
-  extends MapperImpl<ConfigItem, ConfigItemMongoModel>
+  extends MongoMapper<ConfigItem, ConfigItemMongoModel>
 {
   constructor() {
     super();

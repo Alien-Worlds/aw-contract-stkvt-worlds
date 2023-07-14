@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 17:03:41 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:58:27 GMT
  */
 
 
@@ -18,7 +18,7 @@ import {
 import { BalanceobsvMongoMapper, BalanceobsvRawMapper } from "./balanceobsv.mapper";
 import { StakeobsvMongoMapper, StakeobsvRawMapper } from "./stakeobsv.mapper";
 import { UpdateconfigMongoMapper, UpdateconfigRawMapper } from "./updateconfig.mapper";
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { DataEntityType } from '../../domain/entities/stkvt-worlds-action';
 import { 
   StkvtWorldsActionMongoModel,
@@ -34,7 +34,7 @@ import { StkvtWorldsActionName } from '../../domain/enums';
 
 // Mongo Mapper
 export class StkvtWorldsActionMongoMapper
-  extends MapperImpl<ContractAction<DataEntityType>, StkvtWorldsActionMongoModel>
+  extends MongoMapper<ContractAction<DataEntityType>, StkvtWorldsActionMongoModel>
 {
   public fromEntity(
     entity: ContractAction<DataEntityType>

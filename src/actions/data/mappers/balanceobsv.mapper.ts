@@ -1,17 +1,17 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 17:03:41 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:58:27 GMT
  */
 
 import { MapperImpl } from '@alien-worlds/api-core';
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { Asset, AssetMongoMapper, AssetRawMapper } from '@alien-worlds/eosio-contract-types';
 import { Balanceobsv,  AccountBalanceDelta  } from "../../domain/entities";
 import { BalanceobsvMongoModel, BalanceobsvRawModel,  AccountBalanceDeltaMongoModel, AccountBalanceDeltaRawModel  } from "../dtos/balanceobsv.dto";
 
 // Mongo Mappers
 export class BalanceobsvMongoMapper
-  extends MapperImpl<Balanceobsv, BalanceobsvMongoModel>
+  extends MongoMapper<Balanceobsv, BalanceobsvMongoModel>
 {
   constructor() {
     super();
@@ -46,7 +46,7 @@ export class BalanceobsvMongoMapper
 }
 
 export class AccountBalanceDeltaMongoMapper
-  extends MapperImpl<AccountBalanceDelta, AccountBalanceDeltaMongoModel>
+  extends MongoMapper<AccountBalanceDelta, AccountBalanceDeltaMongoModel>
 {
   constructor() {
     super();
