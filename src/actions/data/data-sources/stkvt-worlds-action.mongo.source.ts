@@ -1,9 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 19:18:44 GMT
+ * Last updated on: Thu, 27 Jul 2023 12:27:33 GMT
  */
 
-import { MongoSource, MongoCollectionSource } from '@alien-worlds/storage-mongodb';
+import { MongoSource, MongoCollectionSource } from '@alien-worlds/aw-storage-mongodb';
 import { StkvtWorldsActionMongoModel } from '../dtos';
 
 /**

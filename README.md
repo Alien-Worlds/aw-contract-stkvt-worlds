@@ -1,6 +1,6 @@
 # stkvt.worlds Common
 
-The `@alien-worlds/stkvt-worlds-common` package is a comprehensive set of components designed to seamlessly integrate blockchain contracts into our projects. This package serves as a foundational element, providing essential functionalities for interacting with blockchain contracts and retrieving data.
+The `@alien-worlds/aw-contract-stkvt-worlds` package is a comprehensive set of components designed to seamlessly integrate blockchain contracts into our projects. This package serves as a foundational element, providing essential functionalities for interacting with blockchain contracts and retrieving data.
 
 _The code within this package is auto-generated using our tool, [AlienGen](https://github.com/Alien-Worlds/aliengen). AlienGen automates the generation process, ensuring consistency and accuracy throughout the codebase. This approach allows us to maintain an efficient and reliable workflow when working with blockchain contracts._
 
@@ -37,18 +37,18 @@ The code is based on the ABI of the contract, the list of included actions and t
 
 ## Getting Started
 
-To start utilizing the `@alien-worlds/stkvt-worlds-common` package, follow these steps:
+To start utilizing the `@alien-worlds/aw-contract-stkvt-worlds` package, follow these steps:
 
 1. Install the package by running:
 
 ```
-yarn add @alien-worlds/stkvt-worlds-common
+yarn add @alien-worlds/aw-contract-stkvt-worlds
 ```
 
 2. Import the necessary components into your project:
 
 ```typescript
-import * as StkvtWorldsContract from '@alien-worlds/stkvt-worlds-common';
+import * as StkvtWorldsContract from '@alien-worlds/aw-contract-stkvt-worlds';
 ```
 
 ## Contributing
