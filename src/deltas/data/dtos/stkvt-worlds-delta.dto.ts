@@ -8,32 +8,27 @@ import { MongoDB } from '@alien-worlds/aw-storage-mongodb';
 import { ConfigMongoModel, ConfigRawModel } from './config.dto';
 import { WeightsMongoModel, WeightsRawModel } from './weights.dto';
 
-export type DataDocumentType =
-  | ConfigMongoModel
-  | WeightsMongoModel;
+export type DataDocumentType = ConfigMongoModel | WeightsMongoModel;
 
-export type DataRawType =
-  | ConfigRawModel
-  | WeightsRawModel;
-
+export type DataRawType = ConfigRawModel | WeightsRawModel;
 
 export type StkvtWorldsDeltaMongoModel = {
   _id?: MongoDB.ObjectId;
-  block_number?: MongoDB.Long;
+  block_num?: MongoDB.Long;
   code?: string;
   scope?: string;
   table?: string;
   data_hash?: string;
   data?: DataDocumentType;
   payer?: string;
-  primary_key?: MongoDB.Long,
+  primary_key?: MongoDB.Long;
   present?: boolean;
   block_timestamp?: Date;
 };
 
 export type StkvtWorldsDeltaRawModel = {
   block_timestamp: Date;
-  block_number: string;
+  block_num: string;
   code: string;
   scope: string;
   table: string;
