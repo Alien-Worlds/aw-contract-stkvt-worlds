@@ -120,7 +120,7 @@ export class StkvtWorldsDeltaProcessorTaskMapper extends MapperImpl<
     }
 
     const {
-      block_num,
+      block_number,
       code,
       scope,
       table,
@@ -132,7 +132,7 @@ export class StkvtWorldsDeltaProcessorTaskMapper extends MapperImpl<
 
     return new ContractDelta<DataEntityType, StkvtWorldsDeltaRawModel>(
       '',
-      parseToBigInt(block_num),
+      parseToBigInt(block_number),
       code,
       scope,
       table,

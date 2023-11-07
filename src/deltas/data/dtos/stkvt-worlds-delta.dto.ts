@@ -28,7 +28,7 @@ export type StkvtWorldsDeltaMongoModel = {
 
 export type StkvtWorldsDeltaRawModel = {
   block_timestamp: Date;
-  block_num: string;
+  block_number: string;
   code: string;
   scope: string;
   table: string;
