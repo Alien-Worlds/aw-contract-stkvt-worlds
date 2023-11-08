@@ -3,25 +3,24 @@
  * Last updated on: Thu, 27 Jul 2023 12:27:33 GMT
  */
 
-import { Balanceobsv, Stakeobsv, Updateconfig } from '../../domain/entities';
-import {
-  ContractAction,
-  MapperImpl,
-  parseToBigInt,
+
+import { 
+  Balanceobsv,
+  Stakeobsv,
+  Updateconfig,
+} from '../../domain/entities';
+import { 
+  ContractAction, 
+  MapperImpl, 
+  parseToBigInt 
 } from '@alien-worlds/aw-core';
 
-import {
-  BalanceobsvMongoMapper,
-  BalanceobsvRawMapper,
-} from './balanceobsv.mapper';
-import { StakeobsvMongoMapper, StakeobsvRawMapper } from './stakeobsv.mapper';
-import {
-  UpdateconfigMongoMapper,
-  UpdateconfigRawMapper,
-} from './updateconfig.mapper';
+import { BalanceobsvMongoMapper, BalanceobsvRawMapper } from "./balanceobsv.mapper";
+import { StakeobsvMongoMapper, StakeobsvRawMapper } from "./stakeobsv.mapper";
+import { UpdateconfigMongoMapper, UpdateconfigRawMapper } from "./updateconfig.mapper";
 import { MongoDB, MongoMapper } from '@alien-worlds/aw-storage-mongodb';
 import { DataEntityType } from '../../domain/entities/stkvt-worlds-action';
-import {
+import { 
   StkvtWorldsActionMongoModel,
   StkvtWorldsActionRawModel,
   BalanceobsvMongoModel,
@@ -34,10 +33,9 @@ import {
 import { StkvtWorldsActionName } from '../../domain/enums';
 
 // Mongo Mapper
-export class StkvtWorldsActionMongoMapper extends MongoMapper<
-  ContractAction<DataEntityType>,
-  StkvtWorldsActionMongoModel
-> {
+export class StkvtWorldsActionMongoMapper
+  extends MongoMapper<ContractAction<DataEntityType>, StkvtWorldsActionMongoModel>
+{
   public fromEntity(
     entity: ContractAction<DataEntityType>
   ): StkvtWorldsActionMongoModel {
@@ -62,9 +60,9 @@ export class StkvtWorldsActionMongoMapper extends MongoMapper<
 
     const model: StkvtWorldsActionMongoModel = {
       block_timestamp: entity.blockTimestamp,
-      block_num: new MongoDB.Long(entity.blockNumber),
+      block_number: new MongoDB.Long(entity.blockNumber),
       global_sequence: new MongoDB.Long(entity.globalSequence),
-      recv_sequence: new MongoDB.Long(entity.receiverSequence),
+      receiver_sequence: new MongoDB.Long(entity.receiverSequence),
       trx_id: entity.transactionId,
       action: {
         name: entity.name,
@@ -74,7 +72,7 @@ export class StkvtWorldsActionMongoMapper extends MongoMapper<
     };
 
     if (entity.id && MongoDB.ObjectId.isValid(entity.id)) {
-      model._id = new MongoDB.ObjectId(entity.id);
+      model._id =  new MongoDB.ObjectId(entity.id);
     }
 
     return model;
@@ -105,9 +103,9 @@ export class StkvtWorldsActionMongoMapper extends MongoMapper<
     const {
       _id,
       block_timestamp,
-      block_num,
+      block_number,
       global_sequence,
-      recv_sequence,
+      receiver_sequence,
       trx_id,
       action,
     } = mongoModel;
@@ -115,13 +113,13 @@ export class StkvtWorldsActionMongoMapper extends MongoMapper<
     return new ContractAction<DataEntityType>(
       _id.toString(),
       block_timestamp,
-      parseToBigInt(block_num),
+      parseToBigInt(block_number),
       action.account,
       action.name,
       parseToBigInt(global_sequence),
-      parseToBigInt(recv_sequence),
+      parseToBigInt(receiver_sequence),
       trx_id,
-      data
+      data,
     );
   }
 }

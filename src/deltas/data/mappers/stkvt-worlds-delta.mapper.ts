@@ -3,31 +3,32 @@
  * Last updated on: Thu, 27 Jul 2023 12:27:33 GMT
  */
 
-import { Config, Weights } from '../../domain/entities';
-import {
-  ContractDelta,
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/aw-core';
+
+import { 
+  Config,
+  Weights,
+} from '../../domain/entities';
+import { ContractDelta, MapperImpl, parseToBigInt } from '@alien-worlds/aw-core';
 import { MongoDB, MongoMapper } from '@alien-worlds/aw-storage-mongodb';
 import { DataEntityType } from '../../domain/entities/stkvt-worlds-delta';
 import { StkvtWorldsDeltaMongoModel, StkvtWorldsDeltaRawModel } from '../dtos';
 import { StkvtWorldsTableName } from '../../domain/enums';
-import { ConfigMongoMapper, ConfigRawMapper } from './config.mapper';
-import { WeightsMongoMapper, WeightsRawMapper } from './weights.mapper';
+import { ConfigMongoMapper, ConfigRawMapper } from "./config.mapper";
+import { WeightsMongoMapper, WeightsRawMapper } from "./weights.mapper";
 
 // Mongo Mapper
-export class StkvtWorldsDeltaMongoMapper extends MongoMapper<
-  ContractDelta<DataEntityType>,
-  StkvtWorldsDeltaMongoModel
-> {
+export class StkvtWorldsDeltaMongoMapper
+  extends MongoMapper<ContractDelta<DataEntityType>, StkvtWorldsDeltaMongoModel>
+{
   public fromEntity(
     entity: ContractDelta<DataEntityType>
   ): StkvtWorldsDeltaMongoModel {
     let entityData;
     switch (entity.table) {
       case StkvtWorldsTableName.Config:
-        entityData = new ConfigMongoMapper().fromEntity(entity.data as Config);
+        entityData = new ConfigMongoMapper().fromEntity(
+          entity.data as Config
+        );
         break;
       case StkvtWorldsTableName.Weights:
         entityData = new WeightsMongoMapper().fromEntity(
@@ -38,7 +39,7 @@ export class StkvtWorldsDeltaMongoMapper extends MongoMapper<
 
     const model: StkvtWorldsDeltaMongoModel = {
       block_timestamp: entity.blockTimestamp,
-      block_num: new MongoDB.Long(entity.blockNumber),
+      block_number: new MongoDB.Long(entity.blockNumber),
       code: entity.code,
       scope: entity.scope,
       table: entity.table,
@@ -49,9 +50,9 @@ export class StkvtWorldsDeltaMongoMapper extends MongoMapper<
     };
 
     if (entity.id && MongoDB.ObjectId.isValid(entity.id)) {
-      model._id = new MongoDB.ObjectId(entity.id);
+      model._id =  new MongoDB.ObjectId(entity.id);
     }
-
+    
     return model;
   }
 
@@ -70,7 +71,7 @@ export class StkvtWorldsDeltaMongoMapper extends MongoMapper<
 
     const {
       _id,
-      block_num,
+      block_number,
       code,
       scope,
       table,
@@ -82,7 +83,7 @@ export class StkvtWorldsDeltaMongoMapper extends MongoMapper<
 
     return new ContractDelta<DataEntityType>(
       _id.toString(),
-      parseToBigInt(block_num),
+      parseToBigInt(block_number),
       code,
       scope,
       table,
@@ -97,8 +98,8 @@ export class StkvtWorldsDeltaMongoMapper extends MongoMapper<
 
 // Processor Task Mapper
 export class StkvtWorldsDeltaProcessorTaskMapper extends MapperImpl<
-  ContractDelta<DataEntityType, StkvtWorldsDeltaRawModel>,
-  StkvtWorldsDeltaRawModel
+  ContractDelta<DataEntityType, StkvtWorldsDeltaRawModel>, 
+    StkvtWorldsDeltaRawModel
 > {
   public fromEntity(
     entity: ContractDelta<DataEntityType, StkvtWorldsDeltaRawModel>
@@ -140,7 +141,7 @@ export class StkvtWorldsDeltaProcessorTaskMapper extends MapperImpl<
       payer,
       parseToBigInt(primary_key),
       present,
-      block_timestamp
+      block_timestamp,
     );
   }
 }

@@ -7,10 +7,7 @@ import { MongoDB } from '@alien-worlds/aw-storage-mongodb';
 
 import { BalanceobsvMongoModel, BalanceobsvRawModel } from './balanceobsv.dto';
 import { StakeobsvMongoModel, StakeobsvRawModel } from './stakeobsv.dto';
-import {
-  UpdateconfigMongoModel,
-  UpdateconfigRawModel,
-} from './updateconfig.dto';
+import { UpdateconfigMongoModel, UpdateconfigRawModel } from './updateconfig.dto';
 
 export type DataDocumentType =
   | BalanceobsvMongoModel
@@ -25,9 +22,9 @@ export type DataRawType =
 export type StkvtWorldsActionMongoModel = {
   _id?: MongoDB.ObjectId;
   block_timestamp?: Date;
-  block_num?: MongoDB.Long;
+  block_number?: MongoDB.Long;
   global_sequence?: MongoDB.Long;
-  recv_sequence?: MongoDB.Long;
+  receiver_sequence?: MongoDB.Long;
   trx_id?: string;
   action_hash?: string;
   action?: {
@@ -48,3 +45,4 @@ export type StkvtWorldsActionRawModel = {
   data: DataRawType;
   [key: string]: unknown;
 };
+
